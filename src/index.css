@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+* {
+  scrollbar-color: rgba(59, 130, 246, 0.4) transparent;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-slate-900 font-body antialiased;
+    background-image: radial-gradient(
+        600px circle at 10% 10%,
+        rgba(59, 130, 246, 0.14),
+        transparent 45%
+      ),
+      radial-gradient(
+        700px circle at 90% 20%,
+        rgba(14, 165, 233, 0.12),
+        transparent 40%
+      );
+    min-height: 100vh;
+  }
+
+  html.dark body {
+    @apply bg-ink text-mist;
+  }
+}
+
+.glass {
+  @apply bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-white/20 dark:border-white/10;
+}
+
+.grid-surface {
+  background-image: linear-gradient(
+      to right,
+      rgba(148, 163, 184, 0.12) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.hover-tilt {
+  transform-style: preserve-3d;
+  transition: transform 300ms ease;
+}
+
+.hover-tilt:hover {
+  transform: perspective(1200px) rotateX(4deg) rotateY(-4deg) translateY(-6px);
+}
+
+.section-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: reveal 0.7s ease forwards;
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text-gradient {
+  background: linear-gradient(110deg, #1d4ed8, #60a5fa, #93c5fd);
+  -webkit-background-clip: text;
+  color: transparent;
+}
